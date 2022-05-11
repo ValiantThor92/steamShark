@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
-const { User, image } = require('../models');
+const { User, album } = require('../models');
 
 // homepage for authenticated user is the upload img route
 router.get('/', withAuth, async (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', withAuth, async (req, res) => {
         })
         const user = userData.get({ plain: true });
 
-        res.render('image', {
+        res.render('album', {
             ...user,
             logged_in: true
         });
