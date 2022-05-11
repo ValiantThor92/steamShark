@@ -1,0 +1,14 @@
+<h2>My Photo Album</h2>
+{{#if images}}
+<div class="picture-album">
+    {{#each images as |image|}}
+        <div class="picture-frame">
+            <a href="/images/{{image.path_name}}" target="_blank">
+                <img src="/images/{{image.path_name}}">
+            </a>
+        </div>
+    {{/each}}
+</div>
+{{else}}
+<p>Upload some images to start your Photo album!</p>
+{{/if}}
