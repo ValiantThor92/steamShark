@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const upload = require('../../utils/upload');
 const { Image } = require('../../models');
 
-
+// add new photo
 router.post('/', withAuth, upload.single('image'), async (req, res) => {
     const filepath = req.file.path.split("\\")
     try {
