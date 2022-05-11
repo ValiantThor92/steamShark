@@ -9,7 +9,8 @@
     "url": "git+https://github.com/ValiantThor92/steamShark.git"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node seeds/seed.js"
   },
   "author": "steamsharks",
   "license": "ISC",
