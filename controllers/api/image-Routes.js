@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 const upload = require('../../utils/upload');
 const { Image } = require('../../models');
 
-// route to post an image, splits its filepath and saves the last part in the database along with the user_id
+
 router.post('/', withAuth, upload.single('image'), async (req, res) => {
     const filepath = req.file.path.split("\\")
     try {
