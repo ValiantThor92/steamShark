@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: red;
+}
+.custom-link {
+  color: red;
+  margin-left: 20px;
+}
+
+.custom-brand:hover {
+  color: black;
+}
+
+.custom-link:hover {
+  text-decoration-line: underline;
+  color: black;
+}
+
+main a:hover {
+  color:rgb(139, 0, 0);
+}
+
+body {
+  background-color: rgb(128, 0, 0);
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 20px 20px 20px 30px;
+}
+
+.fa-bars {
+  font-size: 2.5em;
+}
+
+.custom-nav-buttons {
+  font-size: 1.5em;
+}
+
+.picture-album {
+  display: flex;
+  justify-content:flex-start;
+  margin: 1%;
+  flex-wrap: wrap;
+}
+
+.picture-frame img {
+  width: 400px;
+  height: auto;
+  border-radius: 5px;
+}
+.picture-frame {
+  margin: 1%;
+}
+
+h2 {
+  margin: 20px 20px 20px 0px;
+  padding: 10px;
+  border-bottom: 2px solid red;
+  width: fit-content;
+}
+
+#logout {
+  font-size: 1.3rem;
+}
+
+.custom-log {
+  position: absolute;
+  right: 10px;
+}
+
+.nav-custom {
+  background-color: rgb(178, 34, 34);
+  position: fixed;
+  width: 100%;
+  top:0;
+  z-index: 2;
+}
+main {
+  margin-top: 110px;
+}
+
+.custom-login-signup {
+  border: 1px groove rgb(104, 10, 10);
+  margin: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  background-color: #d42203;
+}
+.custom-login-signup > button{
+  margin-top: 10px;
+}
+.custom-login-signup > div > label {
+  margin: 5px;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.upload-form > input{
+  display: block;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+}
+
+@media only screen and (max-width: 1100px){
+}
+
+@media only screen and (max-width: 768px){
+}
+
+@media only screen and (max-width: 440px){
+  h1{
+    display: none;
+  }
+}
