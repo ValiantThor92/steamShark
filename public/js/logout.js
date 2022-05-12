@@ -1,14 +1,24 @@
-const logout = async () => {
-    const response = await fetch('api/users/logout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+const logout = () => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
     });
-
-    if (response.ok) {
-        document.location.replace('/');
-    } else {
-        alert(response.statusText);
-    }
+  }
+  else {
+    res.status(404).end();
+  }
 };
+// const logout = async () => {
+//     const response = await fetch('api/users/logout', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//     });
 
-document.querySelector('#logout').addEventListener('click', logout);
+//     if (response.ok) {
+//         document.location.replace('/');
+//         req.session.loggedIn = false
+//     } else {
+//         alert(response.statusText);
+//     }
+// };
+// document.querySelector('.logout').addEventListener('click', logout);

@@ -7,6 +7,7 @@ const { User, album } = require('../models');
 router.get('/', withAuth, async (req, res) => {
     try {
         console.log(req.session.user_id)
+        console.log('======================');
         const userData = await User.findByPk(req.session.user_id, {
 
             attributes: { exclude: ['password'] },
