@@ -33,7 +33,7 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/upload');
+            document.location.replace('/');
         } else {
             alert(response.statusText);
         }

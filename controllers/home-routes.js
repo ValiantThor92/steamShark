@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { User, Album, Image } = require('../models');
 
-// set logged in homepage to album and populate with uploaded images
+
 router.get('/', withAuth, async (req, res) => {
   try {
       console.log(req.session.user_id)
@@ -12,7 +12,7 @@ router.get('/', withAuth, async (req, res) => {
 
           attributes: { exclude: ['password'] },
       })
-      const Image = userData.get({ plain: true }); //idk what im doing but i want to populate with images
+      const Image = userData.get({ plain: true }); 
 
       res.render('album', { 
         Image,
@@ -38,7 +38,7 @@ router.get('/album', withAuth, async (req, res) => {
       console.log("**********")
       const userData = await User.findByPk(req.session.user_id, {
         attributes: { exclude: ['password'] },
-        include: [{ model: "album" }]
+        include: [{ model: Image }]
       })
       const user = userData.get({ plain: true });
       

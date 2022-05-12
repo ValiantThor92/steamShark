@@ -1,20 +1,16 @@
-<h2>My Photo Album</h2>
-{{#if images}}
 <div class="picture-album">
 
     {{#each images as |image|}}
+
         <div class="picture-frame">
             <a href="/images/{{image.path_name}}" target="_blank" class="col-md-3">
                 <img src="/images/{{image.path_name}}">
             </a>
+            <div class="btn-holder">
+              <button type="button" class="btn btn-danger delete" data-id="{{image.id}}" id="delete" >Delete</button>
+            </div>
         </div>
-        <div class="col-md-3 align-self-center">
-          <button type="button" class="btn btn-danger delete custom-delete-btn" data-id="{{image.id}}" id="delete" >Delete</button>
-        </div>
+
     {{/each}}
 
 </div>
-
-{{else}}
-<p>Upload some images to start your Photo album!</p>
-{{/if}}

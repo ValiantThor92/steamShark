@@ -22,6 +22,7 @@ router.post('/', withAuth, upload.single('image'), (req, res) => {
 
 // delete a photo
 router.delete('/:id', withAuth, async (req, res) => {
+
   try {
       const imageData = await Image.destroy({
           where: {
@@ -37,6 +38,9 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
       res.status(400).json(err);
   }
+
 });
+
+
 
 module.exports = router;
