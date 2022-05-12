@@ -3,35 +3,24 @@ const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { User, Album, Image } = require('../models');
 
+// set logged in homepage to album and populate with uploaded images
+router.get('/', withAuth, async (req, res) => {
+  try {
+      console.log(req.session.user_id)
+      console.log('======================');
+      const userData = await User.findByPk(req.session.user_id, {
 
-router.get('/', withAuth, (req, res) => {
-  console.log('======================');
-  Album.findall({
-    attributes: [
-      'user_id',
-    ],
-    include: [
-      {
-        model: Image,
-        attributes: ['user_id', 'image_id'],
-        include: {
-          model: User,
-        }
-      },
+          attributes: { exclude: ['password'] },
+      })
+      const Image = userData.get({ plain: true }); //idk what im doing but i want to populate with images
 
-    ]
-  })
-  .then(albumData => {
-    const userData = albumData.map(post => post.get({ plain: true }));
-    res.render('album', {
+      res.render('album', { 
         Image,
-        logged_in: true
-    });
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+        logged_in: req.session.loggedIn
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
 });
 
 //route to login to account

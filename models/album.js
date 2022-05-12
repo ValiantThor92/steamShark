@@ -11,7 +11,7 @@ Album.init({
     autoIncrement: true,
   },
   path_name: {
-    type: DataTypes.path_name, //.path_name im not sure on. tryin things
+    type: DataTypes.STRING,
     allowNull: false,
   },
   user_id: {
