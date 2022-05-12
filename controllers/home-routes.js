@@ -17,23 +17,21 @@ router.get('/', withAuth, (req, res) => {
         include: {
           model: User,
         }
+      },
 
-      }
     ]
   })
-        const userData = await User.findByPk(req.session.user_id, {
-
-            attributes: { exclude: ['password'] },
-        })
-        const user = userData.get({ plain: true });
-
-        res.render('album', {
-            ...user,
-            logged_in: true
-        })
-    .catch (err) 
-        res.status(500).json(err);
-    
+  .then(albumData => {
+    const userData = albumData.map(post => post.get({ plain: true }));
+    res.render('album', {
+        image,
+        logged_in: true
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 //route to login to account
