@@ -1,5 +1,5 @@
 const User = require("./User");
-const Image = require("./album");
+const Image = require("./image");
 
 User.hasMany(Image, {
   foreignKey: "user_id",

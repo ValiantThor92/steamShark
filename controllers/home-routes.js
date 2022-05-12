@@ -1,13 +1,26 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
-const { User, album } = require('../models');
+const { User, Album, Image } = require('../models');
 
-// homepage for authenticated user is the upload img route
-router.get('/', withAuth, async (req, res) => {
-    try {
-        console.log(req.session.user_id)
-        console.log('======================');
+
+router.get('/', withAuth, (req, res) => {
+  console.log('======================');
+  Album.findall({
+    attributes: [
+      'user_id',
+    ],
+    include: [
+      {
+        model: Image,
+        attributes: ['user_id', 'image_id'],
+        include: {
+          model: User,
+        }
+
+      }
+    ]
+  })
         const userData = await User.findByPk(req.session.user_id, {
 
             attributes: { exclude: ['password'] },
@@ -17,10 +30,10 @@ router.get('/', withAuth, async (req, res) => {
         res.render('album', {
             ...user,
             logged_in: true
-        });
-    } catch (err) {
+        })
+    .catch (err) 
         res.status(500).json(err);
-    }
+    
 });
 
 //route to login to account
@@ -35,18 +48,17 @@ router.get('/login', (req, res) => {
 // route to get the images to album
 router.get('/album', withAuth, async (req, res) => {
     try {
-        console.log(req.session.user_id)
-        const userData = await User.findByPk(req.session.user_id, {
-
-            attributes: { exclude: ['password'] },
-            include: [{ model: album }]
-        })
-        const user = userData.get({ plain: true });
-        console.log(user);
-        res.render('album', {
-            ...user,
-            logged_in: true
-        });
+      console.log("**********")
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: "album" }]
+      })
+      const user = userData.get({ plain: true });
+      
+      res.render('album', {
+        ...user,
+        logged_in: true
+      });
     } catch (err) {
         res.status(500).json(err);
     }

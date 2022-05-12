@@ -1,36 +1,34 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Image extends Model {}
+class Album extends Model {}
 
-Image.init(
-    {
-    id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+Album.init({
+  id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    primaryKey: true,
+    autoIncrement: true,
+  },
+  path_name: {
+    type: DataTypes.path_name, //.path_name im not sure on. tryin things
+    allowNull: false,
+  },
+  user_id: {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'user',
+      key: 'id',
     },
-    path_name: {
-        type: DataTypes.STRING,
-        allowNull: false,
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id',
-        },
-    },
-
+  },
 }, 
-    {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'album',
-    }
+  {
+  sequelize,
+  timestamps: false,
+  freezeTableName: true,
+  underscored: true,
+  modelName: 'album',
+  }
 )
 
-module.exports = Image;
+module.exports = Album;
