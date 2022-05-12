@@ -24,7 +24,7 @@ router.get('/', withAuth, (req, res) => {
   .then(albumData => {
     const userData = albumData.map(post => post.get({ plain: true }));
     res.render('album', {
-        image,
+        Image,
         logged_in: true
     });
   })
