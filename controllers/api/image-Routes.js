@@ -4,7 +4,7 @@ const upload = require('../../utils/upload');
 const { User, Image } = require('../../models');
 
 // add new photo
-router.post('/', withAuth, upload.single('image'), (req, res) => {
+router.post('/album', withAuth, upload.single('image'), (req, res) => {
   const filepath = req.file.path.split("\\")
 
   Image.create({
@@ -15,7 +15,7 @@ router.post('/', withAuth, upload.single('image'), (req, res) => {
   .then(imageData => res.json(imageData))
   .catch (err => {
     alert(err)
-    res.render('upload')
+    // res.render('upload')
   })
 
 });
