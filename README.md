@@ -50,8 +50,8 @@ I am able to create a user account and after logging in I am able to upload phot
 ---
 ### Links
 [Project GitHub Repo](https://github.com/ValiantThor92/steamShark) <br>
-[~Deployed Project on Heroku~](https:heroku.com) <br>
+[Deployed Project on Heroku](https://docvault-app.herokuapp.com/) <br>
 
 ---
-### Creators
+### Developers
 [Travis](https://github.com/ValiantThor92), [Kaia](https://github.com/Re1d0n), [Jacob](https://github.com/YacobLeonetti), and [Jack](https://github.com/JackyFord)
