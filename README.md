@@ -1,3 +1,4 @@
+![DocVault Logo](./public/images/docvault.jpg)
 # DocVault
 
 ## Our Project
@@ -29,7 +30,7 @@ THEN my photos are saved to that user, and not visible to other users<br/>
 
 ---
 ## MVP Functionality
-I am able to create a user account and after logging in I am able to upload photos to the application
+I am able to create a user account and after logging in I am able to upload photos to the application <br>
 
 ---
 ## Languages Used
@@ -42,3 +43,15 @@ I am able to create a user account and after logging in I am able to upload phot
 * dotenv 
 * handlebars 
 * multer
+---
+## Project Screenshot
+![Project Screenshot](./screenshots/docvault1.JPG)
+
+---
+### Links
+[Project GitHub Repo](https://github.com/ValiantThor92/steamShark) <br>
+[~Deployed Project on Heroku~](https:heroku.com) <br>
+
+---
+### Creators
+[Travis](https://github.com/ValiantThor92), [Kaia](https://github.com/Re1d0n), [Jacob](https://github.com/YacobLeonetti), and [Jack](https://github.com/JackyFord)
