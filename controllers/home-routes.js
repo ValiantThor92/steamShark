@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 const withAuth = require('../utils/auth');
 const { User, Album, Image } = require('../models');
 
-
+// when accounts created, routes to home
 router.get('/', withAuth, async (req, res) => {
   try {
       console.log(req.session.user_id)
