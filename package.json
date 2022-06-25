@@ -3,7 +3,7 @@
   "description": "",
   "version": "1.0.0",
   "main": "server.js",
-  "homepage": "https://github.com/ValiantThor92/steamShark",
+  "homepage": "https://github.com/ValiantThor92/steamShark#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ValiantThor92/steamShark.git"
