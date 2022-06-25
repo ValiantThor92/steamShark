@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../../utils/auth');
 const upload = require('../../utils/upload');
-const { User, Image } = require('../../models');
+const { Image } = require('../../models');
 
 // add new photo
 router.post('/album', withAuth, upload.single('image'), (req, res) => {
@@ -40,7 +40,5 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 
 });
-
-
 
 module.exports = router;
