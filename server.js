@@ -23,7 +23,6 @@ const sess = {
   })
 };
 
-app.use(compression())
 app.use(session(sess));
 
 app.engine('handlebars', hbs.engine);
