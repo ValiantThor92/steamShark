@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
-const User = require("./user");
+const User = require("./User");
 
 class Image extends Model {}
 
@@ -34,4 +34,4 @@ Image.init(
     }
 )
 
-module.exports = Image;
+module.exports = { Image, User };
