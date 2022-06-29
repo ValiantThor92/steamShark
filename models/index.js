@@ -1,4 +1,4 @@
-const User = require("./User");
+const User = require("./user");
 const Image = require("./Image");
 const Album = require("./Album");
 
