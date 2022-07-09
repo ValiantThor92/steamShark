@@ -14,7 +14,7 @@ router.post('/album', withAuth, upload.single('image'), (req, res) => {
   })
   .then(imageData => res.json(imageData))
   .catch (err => {
-    error(err)
+    err(err)
     // res.render('upload')
   })
 
